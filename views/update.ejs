@@ -1,0 +1,25 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="create-blog content">
+    <form action="/blogs/update" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="<%= data._id %>">
+      <label for="title">Blog title:</label>
+      <input type="text" id="title" name="title" required value="<%=data.title%>"> 
+      <label for="snippet">Blog snippet:</label>
+      <input type="text" id="snippet" name="snippet" required value="<%=data.snippet%>">
+      <label for="body">Blog body:</label>
+      <input type="text" id="body" name="body" required value="<%=data.body%>">
+      <label for="body">Blog Image:</label>
+      <input type="file" id="image" name="file" required>
+      <!-- <img src="../images/<%= data.image %>" alt="image"> -->
+      <button>Update</button>
+    </form>
+  </div>
+
+  <%- include("./partials/foot.ejs") %>
+</body>
+</html>
